@@ -26,9 +26,8 @@ class Obra(models.Model):
     descricao = models.TextField(null=True, blank=True)
     data_cadastro = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey(Autor)
-    ano = models.IntegerField(null=True, blank=True)
     
-    dada_execucao = models.DateField(blank=True, null=True)
+    data_execucao = models.IntegerField(null=True, blank=True)
     largura = models.IntegerField(null=True, blank=True)
     comprimento = models.IntegerField(null=True, blank=True)
     altura = models.IntegerField(null=True, blank=True)
