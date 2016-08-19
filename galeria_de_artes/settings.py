@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -127,3 +128,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = normpath(join(BASE_DIR, 'files/uploads/'))
+
+
+STATIC_ROOT = normpath(join(BASE_DIR, 'static_root'))
+from settings_local import *

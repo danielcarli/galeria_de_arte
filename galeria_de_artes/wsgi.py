@@ -7,10 +7,15 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
-import os
+
+import os, sys
 
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "galeria_de_artes.settings")
 
+PROJECT_ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,PROJECT_ROOT_PATH)
+
 application = get_wsgi_application()
+
