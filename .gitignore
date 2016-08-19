@@ -4,7 +4,7 @@ files/uploads/
 maiar/settings_local.py
 files/static_root/
 galeria_de_arte/settings_local.py
-
+static_root/
 # Executables
 *.exe
 *.out
