@@ -26,7 +26,7 @@ SECRET_KEY = 'z#m^a^71m!tcr5#tg=9*^9tv5o$1wio&u%2w_s*90*vb0h832!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["galeria.ufsm.br",]
 
 
 
@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_ROOT = normpath(join(BASE_DIR, 'files/uploads/'))
+MEDIA_ROOT = normpath(join(BASE_DIR, 'files/'))
 
 
 STATIC_ROOT = normpath(join(BASE_DIR, 'static_root'))
