@@ -20,7 +20,7 @@ class FotografiaTab(admin.TabularInline):
 
 class ObraAdmin(admin.ModelAdmin):
     model = Obra
-    #list_display = ['titulo','autor','dada_execucao', 'altura', 'largura'] 
+    list_display = ['titulo','autor','data_execucao', 'altura', 'largura'] 
 
     search_fields = ['titulo','descricao','autor__nome']
     order_by = ['autor__nome','titulo']

@@ -1,9 +1,10 @@
 # Compiled Python
 *.py[cod]
+files/
 files/uploads/
 maiar/settings_local.py
 files/static_root/
-galeria_de_arte/settings_local.py
+galeria_de_artes/settings_local.py
 static_root/
 # Executables
 *.exe
