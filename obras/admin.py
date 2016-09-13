@@ -1,7 +1,7 @@
 # coding: utf-8
 from django.contrib import admin
 from django.conf import settings
-from models import Obra, Fotografia, Tecnica
+from models import Obra, Fotografia, Tecnica, Tipo
 from easy_thumbnails.files import get_thumbnailer
 
 class FotografiaTab(admin.TabularInline):
@@ -28,3 +28,4 @@ class ObraAdmin(admin.ModelAdmin):
 
 admin.site.register(Obra, ObraAdmin)
 admin.site.register(Tecnica)
+admin.site.register(Tipo)

@@ -15,6 +15,13 @@ class Tecnica(models.Model):
     def __unicode__(self):
         return self.nome
 
+class Tipo(models.Model):
+    nome = models.CharField(max_length=128, unique=True)
+
+    def __unicode__(self):
+        return self.nome
+
+
 class Obra(models.Model):
     UNIDADES_DE_MEDIDA = (
             ("m","Metro"),
@@ -31,12 +38,13 @@ class Obra(models.Model):
     largura = models.IntegerField(null=True, blank=True)
     comprimento = models.IntegerField(null=True, blank=True)
     altura = models.IntegerField(null=True, blank=True)
-    
 
     unidade_de_medida = models.CharField(max_length=2, 
                             choices=UNIDADES_DE_MEDIDA,
                             default="cm")
+    tipo = models.ForeignKey(Tipo, null=True, blank=True)
     tecnicas = models.ManyToManyField(Tecnica)
+    
 
     #slug = AutoSlugField(populate_from="titulo", always_update=True)
 
