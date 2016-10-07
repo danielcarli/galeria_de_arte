@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block  pg-container %}
+
+<div class='container '>
+    <div class="row">    
+        <div class="col-lg-12" style='text-align:center;'>
+            <h2>Artistas</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for autor in autores %}
+        <div class="col-lg-4 col-md-4 col-sm-4 destaques">
+            <center>
+                <a href="{% url "autores.views.autor" autor.slug %}">
+                <h5>
+                    {{ autor.nome }}
+                </h5>
+                </a>
+            </center>
+          
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

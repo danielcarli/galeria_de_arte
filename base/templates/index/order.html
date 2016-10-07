@@ -1,0 +1,52 @@
+<div class="band" style="background-color:rgba(152, 170, 181, 0.28); padding-top:30px; padding-bottom:80px;">
+
+  <div class="container  " >
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row " style="">
+        <div class="col-lg-12 ">
+          <a name="catalogo de servicos"></a>
+          <h2 style="color:#0159a3;"> Catálogo de serviços </h2>
+        
+        </div>
+      </div><!-- /.row -->
+
+    {% for category in categories %}
+    
+      {% if category.catalog_start_row %}
+      <div class='row'>
+      {% endif %}
+              
+              <div class='col-lg-{{ category.catalog_cols }} col-md-{{ category.catalog_cols }} col-sm-6'>
+                <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                      {{ category.name }} 
+                  </div>
+                  <div class="panel-body">
+                    <ul>
+                      {% for service in category.service_set.all %}
+                        {% if service.active %}
+                          <li>
+                            <a href='{% url "tasks.views_customer.customer_task" service.url_name %}'>
+                              {{ service.name }}
+                            </a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                      
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+      {% if category.catalog_end_row %}
+      </div>
+      {% endif %}
+
+    {% endfor %}
+    
+
+  </div>
+</div>
+

@@ -1,0 +1,281 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+  <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+</html><![endif]-->
+   
+  <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en">
+</html><![endif]-->
+   
+  <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> </html><![endif]-->
+   
+  <!--[if gt IE 8]><!-->
+  <!--<![endif]-->
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="author" content="CPD/UFSM" />
+  <meta charset="UTF-8" />
+
+  <meta property="og:image" content="{% static "gerais/images/tvcampus-2.png" %}" />
+
+  
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script type="text/javascript" src="http://updateyourbrowser.net/asn.js"> </script>
+    <![endif]-->
+
+    <title>Galeria de Arte CAL UFSM</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <link  href="{% static "bootstrap/css/bootstrap.min.css" %}"  rel="stylesheet"/>
+    <link href="{% static "font-awesome-4.3.0/css/font-awesome.min.css" %}" rel="stylesheet" media="screen" />
+
+
+    <link href="{% static "css/misc.css" %}" rel="stylesheet" media="screen" />
+    <link href="{% static "css/main.css" %}" rel="stylesheet" media="screen" />
+    <link href="{% static "css/color-scheme.css" %}" rel="stylesheet" media="screen" />
+    <link href="{% static "css/responsive.css"  %}" rel="stylesheet" media="screen" />
+    <link href="{% static "css/menu.css" %}"  rel="stylesheet" media="screen" />
+    <link href="{% static "css/animate.css" %}"  rel="stylesheet" media="screen" />
+    <link href="{% static "css/custom.css" %}"  rel="stylesheet" media="screen" />
+    <script src="{% static "js/jquery.min.js" %}" ></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}" ></script>    
+    <script src="{% static "js/parallax.min.js" %}" ></script>    
+
+    
+    <script type="text/javascript" src="http://site.ufsm.br/arquivos/static/clappr/clappr.min.js"></script>
+    <script type="text/javascript" src="http://site.ufsm.br/arquivos/static/clappr/level-selector.min.js"></script>
+    
+    <jdoc:include type="head" />
+    
+    <link rel="shortcut icon" href="{% static "customer/favicon.ico" %}" />
+    
+    {% block pg-js %}
+
+    {% endblock %}
+    <script  type="text/javascript">
+        
+       $(document).ready(function() {
+        
+        $('a[rel="relativeanchor"]').click(function(){
+            $('html, body').animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+            }, 500);
+            return false;
+        }); 
+      });
+
+    </script>
+    
+    <style type="text/css">
+
+     
+
+    </style>
+
+</head>
+<body >
+  <div id="barra-brasil">
+    <a href="http://brasil.gov.br"
+    style="background:#195580; height: 20px; padding:4px 0 4px 10px; display: block; font-family:sans,sans-serif; text-decoration:none; color:white;">
+    Portal do Governo Brasileiro</a>
+  </div>
+ 
+  <div id="barra-ufsm" >
+  </div>
+
+  
+  <header class="site-header" style="">
+  
+<div style="">
+  <div class="container"  style="">
+    <div class="row"  style="">
+      <div class="col-sm-8 col-xs-8">
+
+        <div class="logo" style=" padding-top: 0px; padding-bottom: 0px; margin-left:-13px; text-align: left; ">
+          <div style="padding: 0px; ">
+
+             <a href="/" title="Galeria de Arte CAL" rel="home" >
+                 <img class='pull-left ' alt="Galeria de Arte CAL" 
+                 src='{% static "marca_cal.jpg" %}' style="padding-top:30px; padding-right:20px;"  height="100" alt="Galeria de Arte CAL" />
+       
+                  <h1 class="titulo_principal pull-left" > 
+                       Acervo<br> de Obras </h1>
+              </a>
+            </div>
+        
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-4 header-right">
+        <ul class="small-links" >
+          
+
+          <li>
+            <a id="fontDefault" href="#">A</a>
+          </li>
+      
+          <li>
+            <a id="fontLarge" href="#">A+</a>
+          </li>
+      
+          <li>
+            <a id="fontSmall" href="#">A-</a>
+          </li>
+        </ul>
+
+
+        <div class='pull-right' style='padding-top:7px; padding-left:10px;'>
+          
+        
+        </div>
+    
+        <div class="search-form hidden-xs pull-right">
+          <form class="navbar-form search_form" role="search" method="get" action="">
+            <input type="search" id="search_form_input" value="{{ keywords }}" name="buscar" class="form-control search_form " placeholder="Buscar no site"
+            />
+            <button id='search_from_button' class='btn btn-small' id="btn-busca"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      
+        <div style='clear:both;'>
+          
+          <ul class="small-links hidden-xs" style="font-family: Helvetica, Verdana, sans-serif">
+            <li><a href='http://portal.ufsm.br/indicadores/' target='_blank'>UFSM em Números</a></li>
+          </ul>
+        </div>
+    
+      </div>
+
+      <!-- /.header-right -->
+    </div>
+  </div>
+</div>
+  <!-- /.container -->
+      
+          {% include "main_menu.html" with page_menu=page_menu pages=pages %}
+      
+          <div style="clear:both;"></div>
+ </header>
+  
+  
+
+
+<div  >
+
+{% block  pg-container %}
+      <div class="container "  >
+          <div class="row"  >
+            <div class="col-sm-12 col-xs-12">
+              <center>
+                  <div id="high" style='width: 100%; '>
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus neque ut elit faucibus, in hendrerit nisl varius. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam volutpat pulvinar lacinia. Pellentesque vehicula enim et libero varius, quis vulputate quam convallis. Etiam ornare ante dui, at pulvinar ligula auctor auctor. Suspendisse vulputate lorem ac enim blandit, ac sagittis mi sollicitudin. Curabitur semper pharetra erat, a vestibulum nibh suscipit sit amet. Ut commodo erat nisi, a laoreet nunc fringilla sit amet. In hac habitasse platea dictumst.
+
+Fusce placerat rutrum velit eget pellentesque. Vivamus condimentum tempus quam fermentum lacinia. Cras egestas nisi eget risus hendrerit aliquam. Vivamus rutrum ex eget mattis facilisis. Nullam vel vestibulum ipsum. Praesent auctor quis eros sed fringilla. In vel ultrices ante, quis tempus libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus mi, sodales non blandit ac, tincidunt nec felis. Donec aliquam aliquet tellus quis egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed consectetur vel turpis mattis convallis. Suspendisse potenti. Ut aliquam tincidunt justo et feugiat. Aenean laoreet molestie velit, ac condimentum velit convallis non. Duis auctor elementum ex hendrerit bibendum.
+
+Integer maximus dapibus urna, ut maximus risus commodo at. Maecenas eget nisl neque. Cras vel urna nec enim eleifend semper eu vitae massa. Quisque gravida enim at justo venenatis commodo id vitae metus. Proin tristique nisl vitae justo malesuada tristique. Etiam blandit ultrices tincidunt. Etiam pretium efficitur tincidunt. Suspendisse ac lacinia neque.
+
+Donec maximus et dui eget gravida. Fusce aliquet, ipsum et finibus sodales, turpis metus rhoncus mauris, at aliquam libero libero ut libero. Pellentesque eget ultrices purus. Mauris feugiat ante vel augue aliquam ullamcorper. Aliquam posuere lacinia volutpat. Curabitur mattis mattis efficitur. Mauris facilisis bibendum feugiat.
+
+Mauris nisl lorem, blandit a lorem a, posuere molestie dui. Integer nec enim ultrices, pharetra nulla sed, iaculis nibh. Nunc scelerisque maximus nisl ac facilisis. Nulla gravida, ligula in rutrum eleifend, nisi mi vulputate ante, non imperdiet mauris mauris a sapien. Pellentesque placerat pellentesque mollis. Donec pharetra efficitur libero eu suscipit. Vivamus in nunc quis augue venenatis commodo eu quis lorem. Pellentesque rutrum laoreet imperdiet. Vivamus congue, nisi varius aliquam commodo, ligula lacus tempus mi, nec accumsan risus justo ut felis. Vivamus at pretium ante.
+                    </div>
+                </center>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
+</div>
+
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-4 borda">
+          <div class="footer-widget">
+            <h4 class="footer-widget-title">Universidade Federal de Santa Maria</h4>
+            Av. Roraima nº 1000
+            <br />Cidade Universitária
+            <br />Bairro Camobi
+            <br />Santa Maria - RS
+            <br />CEP: 97105-900
+          </div>
+         </div>
+    
+    <div class="col-md-4 borda">
+          <div class="footer-widget" >
+            <br />Centro de Artes e Letras
+            <br />Prédio 40 - Sala 1212
+            <br />+55 (55) 3220-8262 
+            <br />E-mail: dircalufsm@gmail.com
+            
+          </div>
+        </div>
+    
+    
+    <div class="col-md-4">
+          <div class="footer-widget">
+            <center>
+              <h5 style="color:white; font-weidth:bold;">Desenvolvido por:</h5>
+              
+              <a href="http://cpd.ufsm.br/">
+                <img   src='{% static "images/cpd-01.png" %}' height="130" alt="Centro de Processamento de Dados - UFSM" />
+              </a>
+              <a href="http://www.multiweb.ufsm.br/">
+                <img  src='{% static "images/multiweb-02.png" %}' height="
+                90" alt="Multiweb - UFSM" />
+              </a>
+            </center>
+          </div>
+        </div>
+    
+
+      </div>
+      <!-- /.row -->
+    
+      <div class="bottom-footer">
+        <div class="row fundo-transparente">
+          <div class="col-md-5">
+            <p class="small-text">Copyright 2016. UFSM</p>
+          </div>
+          <!-- /.col-md-5 -->
+          <div class="col-md-7">
+            
+          </div>
+          <!-- /.col-md-7 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.bottom-footer -->
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- /.site-footer -->
+  
+  
+
+ <script src="{% static "js/plugins.js" %}" ></script>
+ <script src="{% static "js/menu.js" %}"></script>
+ <script src="{% static "js/barra.js" %}" ></script>
+ <script src="{% static "js/custom.js" %}"></script>
+ <link href="{% static "css/extra.css" %}" rel="stylesheet" media="screen" />
+    
+
+    {% if not DEBUG %} 
+        <script>
+          
+        </script>
+    {% endif %}
+    
+  </body>
+  
+</html>
+

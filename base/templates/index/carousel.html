@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+<div style="background:#0159a3;">
+  <div class="container nopad" >
+    
+          <div id="news-carousel" class="carousel slide" data-ride="carousel" >
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              {% for banner in banners %}
+
+                <li data-target="#news-carousel" data-slide-to="{{ forloop.counter0  }}" {% if forloop.first %} class="active" {% endif %} ></li>
+              {% endfor %}
+              
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              {% for banner in banners %}
+              <div class="item {% if forloop.first %} active {% endif %}">
+                {% if banner.link_with == 'n' %}
+                <a href="{% url "maiar.cms.views.news" banner.news.slug %}">
+                {% elif banner.link_with == 'p' %}
+                <a href="{{ banner.page_url }}">
+                {% endif %}
+                    
+                    {% if banner.easythumbnail %}
+                  <img src="{{ banner.image|thumbnail_url:'banner_index' }}" alt="{{ banner.title }}">
+                    {% else %}
+
+                  <img src="{{ banner.image.url }}" alt="{{ banner.title }}">
+                    {% endif %}
+                  <div class="carousel-caption">
+                
+                  </div>
+
+                {% if banner.link_with != '-' %}
+                </a>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#news-carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#news-carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Próximo</span>
+            </a>
+          </div>
+
+      </div>
+  </div>
+
+</div>

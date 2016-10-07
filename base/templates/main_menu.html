@@ -1,0 +1,28 @@
+
+       
+  <div class="nav-bar-main" role="navigation">
+        <div class="container nopad" >
+          
+              <ul class="menutopo  megamenu" style="z-index: 10000;">
+
+                  <li {% if menu == "INICIAL" %} class="active" {% endif %}> 
+                    <a href="/">Inicial</a>
+                  </li>
+                  
+                  <li {% if menu == "AUTORES" %} class="active" {% endif %}> 
+                    <a href="{% url "autores.views.autores" %}">Artistas</a>
+                  </li>
+                  
+                  <li {% if menu == "TECNICAS" %} class="active" {% endif %}>
+                    <a href="{% url "obras.views.tecnicas" %}">  Técnicas </a>
+                  </li>
+
+                  <li {% if menu == "ANO" %} class="active" {% endif %}>
+                    <a href="{% url "obras.views.ano" %}">  Ano </a>
+                  </li>
+
+                  
+                </ul>
+                
+            </div>
+  </div >

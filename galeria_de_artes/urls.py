@@ -19,12 +19,17 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 from django.conf import settings
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
-    url(r'^/?$',TemplateView.as_view(template_name="index.html")),
-]
+    url(r'^/?$','obras.views.index'),
+    url(r'^artistas/?$','autores.views.autores'),
+    url(r'^artista/(?P<slug>[^\/]+)/?$','autores.views.autor'),
+    url(r'^artista/(?P<slug>[^\/]+)/(?P<id_obra>\d*)$','autores.views.autor'),
+    url(r'^tecnicas/?$','obras.views.tecnicas'),
+    url(r'^ano/?$','obras.views.ano'),
+    url(r'^busca/?$','obras.views.busca')
+    ]
 
 
 

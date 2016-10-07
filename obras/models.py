@@ -1,6 +1,7 @@
 # conding: utf-8
 from __future__ import unicode_literals
-
+from random import randint
+from django.db.models.aggregates import Count
 from django.db import models
 from autoslug import AutoSlugField
 from autores.models import Autor
@@ -8,6 +9,26 @@ from autores.models import Autor
 def pasta_obra(instance, filename):
     obra_id = instance.obra.id
     return "obra/{0}/{1}".format(instance.obra.id, filename)
+
+class UtilsManager(models.Manager):
+    def random(self,quantity=1):
+        count = self.aggregate(count=Count('id'))['count']
+        rand_indexes = []
+        itens = []
+        count_quantity = 0
+
+
+        while count_quantity != quantity: 
+            random_index = randint(0, count - 1)
+            if not random_index in rand_indexes:
+                count_quantity += 1
+                rand_indexes.append(random_index)
+                itens.append( self.all()[random_index] )
+
+        return itens
+
+    
+
 
 class Tecnica(models.Model):
     nome = models.CharField(max_length=128, unique=True)
@@ -45,14 +66,24 @@ class Obra(models.Model):
     tipo = models.ForeignKey(Tipo, null=True, blank=True)
     tecnicas = models.ManyToManyField(Tecnica)
     
+    objects = UtilsManager()
 
     #slug = AutoSlugField(populate_from="titulo", always_update=True)
 
     def __unicode__(self):
         return self.titulo
 
+    def get_foto(self):
+        if not self.fotografia_set.all():
+            return None
+        else:
+            return self.fotografia_set.all()[0]
 
 class Fotografia(models.Model):
     obra = models.ForeignKey(Obra)
     foto = models.ImageField(upload_to=pasta_obra)
     
+    objects = UtilsManager()
+
+    def __unicode__(self):
+        return self.obra.titulo

@@ -1,0 +1,96 @@
+ <table class="table table-hover table-striped">
+                <tr>
+                    <th>
+                        Título
+                    </th>
+                    <td>
+                        {{ obra.titulo }}
+                    <td>
+                </tr>
+                {% if  obra.descricao %}
+                <tr>
+                    <td  colspan="2"> 
+                        {{ obra.descricao }}
+                    <td>
+                </tr>
+                {% endif %}
+                {% if obra.data_execucao %}
+                <tr>
+                    <th>
+                        Ano
+                    </th>
+                    <td>
+                        {{ obra.data_execucao }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.largura %}
+                <tr>
+                    <th>
+                        Largura
+                    </th>
+                    <td>
+                        {{ obra.largura }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.comprimento %}
+                <tr>
+                    <th>
+                        Comprimento
+                    </th>
+                    <td>
+                        {{ obra.comprimento }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.altura %}
+                <tr>
+                    <th>
+                        Altura
+                    </th>
+                    <td>
+                        {{ obra.altura }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.altura or obra.lagura or obra.comprimento %}
+                <tr>
+                    <th>
+                        Unidade de medida
+                    </th>
+                    <td>
+                        {{ obra.unidade_de_medida }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.tipo %}
+                <tr>
+                    <th>
+                        Tipo
+                    </th>
+                    <td>
+                        {{ obra.tipo }}
+                    <td>
+                </tr>
+                {% endif %}
+
+                {% if obra.tecnicas %}
+                <tr>
+                    <th>
+                        Tecnica(s)
+                    </th>
+                    <td>
+                        {% for tecnica in obra.tecnicas.all %}
+                                {{ tecnica }} 
+                        {% endfor %}
+                    <td>
+                </tr>
+                {% endif %}
+
+            </table>

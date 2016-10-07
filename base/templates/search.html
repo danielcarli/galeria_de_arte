@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block pg-container %}
+            <div class="container page" style='padding-bottom:40px;'>
+                
+                <div class='row'>
+                    <div class='col-lg-12 '>
+                    
+                        <h1>Resultada do da busca <small>{{ results }}</small></h1>
+                        {{ message }}
+                    </div>
+                </div>    
+
+
+
+            {% if paginas %}
+            <hr>
+            <h2>Páginas</h2>
+            {% endif %}
+
+            {% for pagina in paginas %}
+                <div class="row" >
+                    <div class="col-lg-12">
+                        <a href="">{{ pagina.title }}</a>
+                        <div class="label label-warning" >Página</div>
+                    </div>
+                  
+                </div>
+            {% endfor %}
+
+
+            {% if programas %}
+            <hr>
+            <h2>Programas</h2>
+            {% endif %}
+            {% for programa in programas %}
+                <div class="row" >
+                    <div class="col-lg-12">
+                        <a href="">{{ programa.nome }}</a>
+                        <div class="label label-primary" >Programa</div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if videos %}
+            <hr>
+            <h2>Videos</h2>
+            
+            {% endif %}
+            <div class="row" >
+            {% for video in videos %}
+                
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                          <p>
+                            <center>
+                                <img src='http://img.youtube.com/vi/{{ video.codigo_youtube }}/mqdefault.jpg' class="thumbnail"/>
+                            </center>
+                            <h4 style="color: #64A5DA;"><a href="{% url 'programas.views.play_video' video.slug %}"  > {{ video.nome }} </a></h4>
+                            <div class="label label-primary" >{{ video.programa.nome }} </div>
+                          </p>
+                          
+                    </div><!-- /.col-lg-4 -->
+                
+            {% endfor %}
+            </div>
+            
+                <br><br>  
+
+            </div>    
+        
+
+{% endblock %}
+

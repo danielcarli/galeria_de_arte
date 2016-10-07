@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    
+{% block pg-css %}
+    <style type="text/css">
+        .first-band {
+            background: url('{% static "staff/theme/6559334845_a14885eb7f_o2.jpg" %}') top center repeat-x;
+            z-index:100;position: relative;
+        }
+
+        .band {
+
+            background-color:white;
+            opacity:0.85;
+            -moz-opacity: 0.85;
+            filter: alpha(opacity=85); 
+            padding-top: 10px; 
+            padding-bottom: 10px;
+            overflow: hidden;
+           // background-color:rgba(0,0,0,0.8);
+        }
+
+        .cover-title{
+            color:white;
+            font-size:44px; 
+            text-shadow: 3px 3px 3px #003a82;
+            
+        }
+
+        .cover-info{
+            /*opacity:0.80;
+            -moz-opacity: 0.80;
+            filter: alpha(opacity=80); */
+            color:white;
+            font-size:22px; 
+            line-height: 38px;
+            background:#FF7700;
+            padding: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+
+            /*background-color: rgba(255, 119, 0, 0.9);*/
+            /*background-color: rgba(0, 58, 131, 0.9);*/
+        }
+
+        #site-cover-content{
+        //    text-align: right;
+        }
+        
+        #box-cover{
+            color:white;
+            background-color:rgba(0,0,0,0.8);
+            border-color: rgba(123,123,123,0.9);
+        }
+
+        #box-cover2{
+            background-color:white;
+            
+        }
+
+        .transparent{
+            opacity:0.92;
+            -moz-opacity: 0.92;
+            filter: alpha(opacity=92); 
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block pg-js %}
+    <script type="text/javascript">
+        function define_cover_size(){
+            var new_height = $(window).height() * 0.58;
+            
+
+
+            $('#site_cover').css('min-height',new_height );
+
+            $('#site-cover-content').css('margin-top', (new_height/4)+'px')
+
+        }
+
+
+        $(document).ready(function(){
+            define_cover_size();
+
+            $(window).resize(function(data){
+                define_cover_size();
+            });
+            
+        });
+    </script>
+
+{% endblock %}
+
+

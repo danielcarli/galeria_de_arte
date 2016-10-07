@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block  pg-container %}
+<div class="geral"  style="" >
+
+    <div class="">
+        <div class='container '>
+            <div class="row">    
+                <div class='col-sm-4  pull-right  geral-creditos'>
+                    <a href="{% url "autores.views.autor" destaque.obra.autor.slug destaque.obra.id %}">  {{ destaque.obra.autor.nome }} </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='container '>
+    <div class="row">    
+        <div class="col-lg-12" style='text-align:center;'>
+            <h2>Destaques</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for destaque in destaques %}
+        <div class="col-lg-4 col-md-4 col-sm-4 destaques">
+            <center>
+                <a href="{% url "autores.views.autor" destaque.obra.autor.slug destaque.obra.id %}">
+                <h5>
+                    {{ destaque.obra.autor.nome }}
+                </h5>
+                <img src="{% thumbnail destaque.foto 250x250 %}" class="thumbnail">
+                </a>
+            </center>
+          
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<style type="text/css">
+    .geral{
+        background: url('{{ destaque.foto.url }}') center  no-repeat; 
+        height:500px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .geral-creditos{
+        background-color: #113d5d ;
+        opacity: 0.9;
+        height: 50px;
+        color: white;
+        margin-top: 440px;
+        text-align: center;
+        padding-top: 12px;
+        font-size: 20px;
+        border-radius: 3px; 
+    }
+    .geral-creditos a{
+        color: white;
+    }
+    .destaques{
+        height: 350px;
+    }
+
+</style>
+{% endblock %}

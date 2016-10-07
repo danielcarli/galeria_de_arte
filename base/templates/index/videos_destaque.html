@@ -1,0 +1,51 @@
+
+<div style="background-color: #195580; padding-top:10px; padding-bottom:10px;">
+  <div class="container news_highlight " >
+          <div class="row ">
+              <div class="col-12-lg">
+                  <h1 style="color:white;">Destaques</h1>
+                  
+              </div>
+          </div>
+
+  </div>
+</div>
+
+
+<div style="">
+  <div class="container news_highlight " style="padding-top:10px; padding-bottom:10px;">
+
+
+    {% for linha in linhas_videos %}
+      <!-- Three columns of text below the carousel -->
+      <div class="row wobble ">
+        {% for video in linha %}
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <p>
+            <center>
+                <img src='http://img.youtube.com/vi/{{ video.codigo_youtube }}/mqdefault.jpg' class="thumbnail"/>
+            </center>
+            <h4><a href="{% url 'programas.views.play_video' video.slug %}" > {{ video.nome }} </a></h4>
+            
+          </p>
+          
+        </div><!-- /.col-lg-4 -->
+        {% endfor %}
+
+      </div><!-- /.row -->
+    {% endfor %}
+
+<br>
+{% if show_more   %}
+ <div class="row">
+        <div class="col-lg-12">
+           <p><a class="btn btn-primary" href="{% url  "programas.views.programas" %}" role="button">mais programas</a></p>
+        </div>
+
+      </div>
+{% endif %}
+<br><br>  
+</div>
+
+
+
