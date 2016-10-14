@@ -29,12 +29,19 @@ class UtilsManager(models.Manager):
 
     
 
-
 class Tecnica(models.Model):
     nome = models.CharField(max_length=128, unique=True)
+    slug = AutoSlugField(populate_from='nome', always_update=True, default="")
 
     def __unicode__(self):
         return self.nome
+
+    def populate_auto_slug(self):
+        self.slug = self.nome.encode("ASCII",'ignore').replace(' ','-')
+        self.save()
+
+    def count(self):
+        return self.obra_set.count()
 
 class Tipo(models.Model):
     nome = models.CharField(max_length=128, unique=True)

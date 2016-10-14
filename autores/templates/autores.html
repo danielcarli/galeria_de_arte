@@ -14,7 +14,7 @@
             <center>
                 <a href="{% url "autores.views.autor" autor.slug %}">
                 <h5>
-                    {{ autor.nome }}
+                    {{ autor.nome }} <span class="label label-info">{{autor.count}}</span>
                 </h5>
                 </a>
             </center>

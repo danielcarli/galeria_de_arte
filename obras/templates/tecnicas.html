@@ -13,9 +13,9 @@
         {% for tecnica in tecnicas %}
         <div class="col-lg-4 col-md-4 col-sm-4 destaques">
             <center>
-                <a href="">
+                <a  href="{% url "obras.views.tecnica" tecnica.slug  %}">
                 <h5>
-                    {{ tecnica.nome }}
+                    {{ tecnica.nome }} <span class="label label-warning">{{tecnica.count}}</span> 
                 </h5>
                 </a>
             </center>
