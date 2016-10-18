@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+{% block  pg-container %}
+
+<div class='container '>
+    <div class="row">    
+        <div class="col-lg-12" style='text-align:center;'>
+            <h2>Anos</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for ano in anos %}
+        <div class="col-lg-4 col-md-4 col-sm-4 destaques">
+            <center>
+                <a  href="{% url "obras.views.ano" ano|default:"" %}">
+                <h5 style="font-size:40px;">
+                    {{ ano|default:"Desconhecido" }} 
+                </h5>
+                </a>
+            </center>
+          
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -26,11 +26,14 @@ urlpatterns = [
     url(r'^artistas/?$','autores.views.autores'),
     url(r'^artista/(?P<slug>[^\/]+)/?$','autores.views.autor'),
     url(r'^artista/(?P<slug>[^\/]+)/(?P<id_obra>\d*)$','autores.views.autor'),
+    url(r'^anos/?$','obras.views.anos'),
+    url(r'^ano/(?P<ano>\d*)$','obras.views.ano'),
+    url(r'^ano/(?P<ano>\d*)/(?P<numero_pagina>\d*)$','obras.views.ano'),
     url(r'^tecnicas/?$','obras.views.tecnicas'),
     url(r'^tecnica/(?P<slug>[^\/]+)$','obras.views.tecnica'),
     url(r'^tecnica/(?P<slug>[^\/]+)/(?P<numero_pagina>\d*)$','obras.views.tecnica'),
-    url(r'^ano/?$','obras.views.ano'),
-    url(r'^busca/?$','obras.views.busca')
+    url(r'^busca/?$','obras.views.busca'),
+    url(r'^busca/(?P<busca>[^\/]+)/(?P<numero_pagina>\d*)$', 'obras.views.busca')
     ]
 
 

@@ -7,6 +7,16 @@
                         {{ obra.titulo }}
                     <td>
                 </tr>
+                {% if  show_autor %}
+                <tr>
+                    <th>
+                        Artista
+                    </th>
+                    <td>
+                        <a href="{% url "autores.views.autor"  obra.autor.slug %}"> {{ obra.autor.nome }} </a>
+                    <td>
+                </tr>
+                {% endif %}
                 {% if  obra.descricao %}
                 <tr>
                     <td  colspan="2"> 

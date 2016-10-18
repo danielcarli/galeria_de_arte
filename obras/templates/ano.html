@@ -6,7 +6,7 @@
 <div class='container '>
     <div class="row">    
         <div class="col-lg-12" style='text-align:center;'>
-            <h2>{{ tecnica.nome }}</h2>
+            <h2>{{ ano|default:"Ano desconhecido" }}</h2>
         </div>
     </div>
     <div class="row">
@@ -32,7 +32,7 @@
 
     </div>
     <div class="row">
-          {% include "componentes_obras/paginador_tecnica.html" with pagina=pagina tecnica=tecnica %}
+          {% include "componentes_obras/paginador_ano.html" with pagina=pagina ano=ano %}
     </div>
 </div>
 

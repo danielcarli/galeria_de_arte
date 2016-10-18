@@ -137,7 +137,7 @@
         </div>
     
         <div class="search-form hidden-xs pull-right">
-          <form class="navbar-form search_form" role="search" method="get" action="">
+          <form class="navbar-form search_form" role="search" method="get" action="{% url "obras.views.busca" %}">
             <input type="search" id="search_form_input" value="{{ keywords }}" name="buscar" class="form-control search_form " placeholder="Buscar no site"
             />
             <button id='search_from_button' class='btn btn-small' id="btn-busca"><i class="fa fa-search"></i></button>
